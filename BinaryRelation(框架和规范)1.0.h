@@ -82,10 +82,61 @@ class BinaryRelationAssmble
 	b.动态数组使用vector,其他用倒指针的地方另行讨论；
 	c.空指针统一使用NULL；
 	*/
-	public:
-	(未完成)
+
+	/*（李玉霞）辅助函数，处理父集A变化时关系矩阵matrix的变化，即根据变化增加或删减行列*/
+	void whenFatherChange();  //可使用vector类的erase()方法删除，resize()方法增加行，注意这是二维数组，行列都要修改
 	
+	/*(陈劲宇)辅助函数，将Matrix中所有元素置0*/
+	void setMatrixZero();
+
+	public:
+		/*(陈劲宇)添加元素el到父集A*/
+		void add_father(const T & el);   
+		/*（陈劲宇）变元素e1,e2为<el,e2>添加到二元关系集合relation*/
+		void add_relation(const T & e1, const T & e2); 
+
+		/*(李道临)关系集合转换为关系矩阵（relation转为用matrix表示）
+		以father集合对应元素的下标作为关系矩阵作为矩阵行列标志
+		  即  a b c
+		    a 0 1 0
+			b 0 0 1
+			c 1 1 0
+		  abc存储在father集合中，故可以用father[0]、father[1]father[2]分别表示
+		  即矩阵第一行表示为matrix[0][0]、matri[0][1]、matrix[0][2],值为0、1、0;
+		  以上为matrix二维动态数组存储关系矩阵的方式
+		  */
+		void relationTOmatrix();  //ps：中间的是to的大写,不是T和零
+		/*(李道临)关系矩阵转换为关系集合(matrix转换为relation)*/
+		void matrixTOrelation();
+
+		/*(王弄笛)设置二维数组matrix[i][j]的值,设置为值value*/
+		void setMatrixValue(int i, int j, int value = 0);
+		/*(王弄笛)获取matrix[i][j]值*/
+		int getMatrixValue(int i, int j);
+		/*(王弄笛)获取父集A，即father的元素数目*/
+		int getFatherLength();
+		/*(王弄笛)获取二元关系集合relation的元素数目*/
+		int getRelationLength();
+
+		//关系判断一律以矩阵为基础，所以判断函数第一行先调用relationTOmatrix()将二元关系转换为矩阵
+		/*(李玉霞)判断对象是否满足自反性,满足返回true,不满足返回false*/
+		bool isReflexive();
+		/*(李玉霞)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+		bool isIrreflexive();
+		/*(侯梦茹)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+		bool isSymmetric();
+		/*(侯梦茹)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+		bool isAntisymmetric();
+		/*(侯梦茹)判断对象是否满足传递性,满足返回true,不满足返回false*/
+		bool isTransitive();
+
+		/*(卫孝贤)main函数和控制台交互菜单*/
 }
 
 
+/*代码规范********4.编写规范
+a.避免代码重复，重复的行尽量用循环代替，重复的块尽量用函数代替，为排除故障提供方便
+b.main函数编写过程中使用各位编写的公有方法，各位在编写方法过程中也可以多调用已设计出的功能方法来实现
+c.基本思路为支持矩阵输入和关系输入，转换为关系矩阵后判断是否满足相应性质;
+*/
 #endif
