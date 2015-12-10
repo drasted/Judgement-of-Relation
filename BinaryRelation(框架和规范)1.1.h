@@ -117,21 +117,23 @@ class BinaryRelationAssmble
 		int getFatherLength();
 		/*(王弄笛)获取二元关系集合relation的元素数目*/
 		int getRelationLength();
+		/*(王弄笛)输入一个i行j列的矩阵*/
+		bool inputMatrix(int i,int j);   //输入成功返回true，输入失败返回false（可以查一下cin的输入失败的一些情况做考虑）
 
 		//关系判断一律以矩阵为基础，所以判断函数第一行先调用relationTOmatrix()将二元关系转换为矩阵
 		/*(李玉霞)判断对象是否满足自反性,满足返回true,不满足返回false*/
 		bool isReflexive();
 		/*(李玉霞)判断对象是否满足反自反性,满足返回true,不满足返回false*/
 		bool isIrreflexive();
-		/*(侯梦茹)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+		/*(侯梦茹)判断对象是否满足对称性,满足返回true,不满足返回false*/
 		bool isSymmetric();
-		/*(侯梦茹)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+		/*(侯梦茹)判断对象是否满足反对称性,满足返回true,不满足返回false*/
 		bool isAntisymmetric();
 		/*(侯梦茹)判断对象是否满足传递性,满足返回true,不满足返回false*/
 		bool isTransitive();
 
 		/*(卫孝贤)main函数和控制台交互菜单*/
-}
+};
 
 
 /*代码规范********4.编写规范
@@ -140,3 +142,5 @@ b.main函数编写过程中使用各位编写的公有方法，各位在编写方法过程中也可以多调用已设
 c.基本思路为支持矩阵输入和关系输入，转换为关系矩阵后判断是否满足相应性质;
 */
 #endif
+
+
