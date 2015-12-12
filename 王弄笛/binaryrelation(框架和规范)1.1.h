@@ -68,7 +68,7 @@ class BinaryRelationAssmble
 {
 	private:
 	vector<T> father;   //父集，即题目中的集合A
-	vector< BRelation<T> > relation;  //二元关系的集合
+	vector< BRelation<T> > relation; //二元关系的集合
 	vector< vector<int> >  matrix;  //关系矩阵
 	/*考虑到指针使用易引起的不明故障，以及代码整合后的复杂故障，这里使用STL中的最简单的向量vector来实现动态数组，
 	  其原理类似于数据结构中的线性表可变数组，支持使用[]访问内部元素，vector<T>中的T表示动态数组中的元素类型，
@@ -133,13 +133,6 @@ class BinaryRelationAssmble
 		bool isTransitive();
 
 		/*(卫孝贤)main函数和控制台交互菜单*/
-		
-		/*(石俊)输出父集元素*/
-		void print_father();
-		/*(石俊)输出关系集合*/
-		void print_relation();
-		/*(石俊)输出关系矩阵(可选)*/
-		void print_matrix();
 };
 
 
@@ -148,32 +141,6 @@ a.避免代码重复，重复的行尽量用循环代替，重复的块尽量用函数代替，为排除故障提供方
 b.main函数编写过程中使用各位编写的公有方法，各位在编写方法过程中也可以多调用已设计出的功能方法来实现
 c.基本思路为支持矩阵输入和关系输入，转换为关系矩阵后判断是否满足相应性质;
 */
-
-
-template<typename T>
-void BinaryRelationAssmble<T>::setMatrixZero() {//辅助函数，将Matrix中所有元素置0
-	int m = getFatherLength();
-	for (int i = 0; i<m; i++)//第一层循环; i为行，m为A现在所有的元素数目（使用_getFatherLength()获得）
-		for (int j = 0; j<m; j++)//第二层循环；j为列
-		{
-			matrix[i][j] = 0;
-		}
-}
-
-template<typename T>
-void BinaryRelationAssmble<T>::add_father(const	T & e1) {//添加元素el到父集A
-
-	father.push_back(e1);//添加元素e1
-
-}
-
-template<typename T>
-void BinaryRelationAssmble<T>::add_relation(const T & e1, const T & e2)//变元素e1,e2为<el,e2>添加到二元关系集合relation
-{
-	BRelation<T>  r(e1,e2);
-	relation.push_back(r);
-}
-
 #endif
 
 
