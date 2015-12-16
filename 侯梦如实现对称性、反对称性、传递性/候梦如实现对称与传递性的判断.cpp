@@ -32,7 +32,7 @@ bool  BinaryRelationAssmble<T>::isAntisymmetric()
 	int fnum = getFatherLength();
 	for (i = 0; i < fnum; i++)
 		for (j = i; j < fnum; j++)						//对矩阵上半部分进行遍历判断，matrix[i][j]对称位置是否与其相等  
-			if ((matrix[i][j] == 1) && (matrix[i][j] == 1))
+			if ((matrix[i][j] == 1) && (matrix[j][i] == 1))
 				if(i!=j)								// 判断对称位置相等的坐标是否在主对角线上
 				   return false;
 	return true;

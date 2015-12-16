@@ -45,8 +45,8 @@ class BRelation             //表示二元关系，即形如<1,2>
 		r1 = v1;
 		r2 = v2;
 	}
-	T & getR1() { return r1; }   const   //获取二元关系前一个元素的值
-	T & getR2() { return r2; }   const   //获取二元关系后一个元素的值
+	const T & getR1() { return r1; }   const   //获取二元关系前一个元素的值
+	const T & getR2() { return r2; }   const   //获取二元关系后一个元素的值
 	void setR1(const T & v1) { r1 = v1; }    //用v1设置第一个元素的值
 	void setR2(const T & v2) { r2 = v2; }    //用v2设置第二个元素的值
 };

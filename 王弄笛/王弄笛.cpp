@@ -20,7 +20,7 @@ int BinaryRelationAssmble<T>::getMatrixValue(int i, int j)
 template<typename T>
 int BinaryRelationAssmble<T>::getFatherLength()
 {
-	return father.size();
+	return (int)father.size();
 }
 
 /*获取二元关系集合relation的元素数目*/
@@ -35,11 +35,14 @@ int BinaryRelationAssmble<T>::getRelationLength()
 template<typename T>
 bool BinaryRelationAssmble<T>::inputMatrix(int i, int j)  //输入成功返回true，输入失败返回false（可以查一下cin的输入失败的一些情况做考虑）
 {
+	matrix.resize(i);
 	int I, J;
 	for (I = 0; I<i; I++)
 	for (J = 0; J<j; J++)
 	{
-		cin >> matrix[I][J];
+		T temp;
+		cin >> temp;
+		matrix[I].push_back（temp）;
 		if (cin.fail())
 			return false;
 	};

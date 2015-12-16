@@ -9,7 +9,7 @@ bool isSymmetric(vector< vector<int> >  matrix)
 	int i, j;
 
 	for (i = 0; i < 4; i++)
-		for (j = i; j < 4; j++)					//¶Ô¾ØÕóÉÏ°ë²¿·Ö½øÐÐ±éÀúÅÐ¶Ï£¬matrix[i][j]¶Ô³ÆÎ»ÖÃÊÇ·ñÓëÆäÏàµÈ  
+		for (j = i; j < 4; j++)					//ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½Ï°ë²¿ï¿½Ö½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½matrix[i][j]ï¿½Ô³ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 			if (matrix[i][j] != matrix[j][i])			
 				return false;
 	return true;
@@ -20,10 +20,10 @@ bool  isAntisymmetric(vector< vector<int> >  matrix)
 	int i, j;
 	int fnum = 4;
 	for (i = 0; i < fnum; i++)
-		for (j = i; j < fnum; j++)						//¶Ô¾ØÕóÉÏ°ë²¿·Ö½øÐÐ±éÀúÅÐ¶Ï£¬matrix[i][j]¶Ô³ÆÎ»ÖÃÊÇ·ñÓëÆäÏàµÈ  
+		for (j = i; j < fnum; j++)						//ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½Ï°ë²¿ï¿½Ö½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½matrix[i][j]ï¿½Ô³ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 			
-			if ((matrix[i][j]==1)&& (matrix[i][j]==1))
-				if (i != j)								// ÅÐ¶Ï¶Ô³ÆÎ»ÖÃÏàµÈµÄ×ø±êÊÇ·ñÔÚÖ÷¶Ô½ÇÏßÉÏ
+			if ((matrix[i][j]==1)&& (matrix[j][i]==1))
+				if (i != j)								// ï¿½Ð¶Ï¶Ô³ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
 					//cout <<"i"<< i << "j"<<j<<endl;
 					return false;
@@ -33,11 +33,11 @@ bool  isAntisymmetric(vector< vector<int> >  matrix)
 static vector< vector<int> >  matrixp;		
 void    matrixProduct( vector< vector<int> >  matrix)
 {		
-	int i, k, j;   // ¶¨Òå±äÁ¿
-	int temp = 0;	   //  ÓÃÓÚ´æ·Å³Ë»ý¾ØÕóµÄÖµ
-				        // ¶¨ÒåÀà±äÁ¿													 //static vector< vector<int> >  matrixp;          // ¶¨Òå¾²Ì¬³Ë»ý¾ØÕó
-	int fnum = 4;                  // ÓÃfnum ´æ·Å¾ØÕóµÄÁÐºÍÐÐ  
-							  /*  Îª³Ë»ý¾ØÕó·ÖÅä´óÐ¡£¬²¢³õÊ¼»¯Îª0*/
+	int i, k, j;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int temp = 0;	   //  ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Å³Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+				        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½													 //static vector< vector<int> >  matrixp;          // ï¿½ï¿½ï¿½å¾²Ì¬ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
+	int fnum = 4;                  // ï¿½ï¿½fnum ï¿½ï¿½ï¿½Å¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½  
+							  /*  Îªï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Îª0*/
 	matrixp.resize(fnum);
 	for (i = 0; i < fnum; i++)
 		matrixp[i].resize(fnum, 0);
@@ -46,10 +46,10 @@ void    matrixProduct( vector< vector<int> >  matrix)
 	for (i = 0; i < fnum; i++)
 		for (j = 0; j < fnum; j++)
 		{
-			for (k = 0; k < fnum; k++)                 // Çó³Ë»ý¾ØÕóÏàÓ¦×ø±ê£¨i,j)µÄÖµ       
-				temp += matrix[i][k] + matrix[k][j];
+			for (k = 0; k < fnum; k++)                 // ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ê£¨i,j)ï¿½ï¿½Öµ       
+				temp += matrix[i][k] * matrix[k][j];
 
-			if (temp != 0)                             //Èç¹ûtemp²»Îª0£¬Ôò½«³Ë»ý¾ØÕó×ø±êÏàÓ¦µÄÖµ¸³Îª1
+			if (temp != 0)                             //ï¿½ï¿½ï¿½ï¿½tempï¿½ï¿½Îª0ï¿½ï¿½ï¿½ò½«³Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Öµï¿½ï¿½Îª1
 				matrixp[i][j] = 1;
 			else
 				matrixp[i][j] = 0;
@@ -59,21 +59,22 @@ void    matrixProduct( vector< vector<int> >  matrix)
 }
 bool isTransitive(vector< vector<int> >  matrix)
 {
-	//vector< vector<int> >  matrixp;							// ¶¨Òå³Ë»ý¾ØÕó
-	int fnum = 4;							//  ÓÃfnum ´æ·Å¾ØÕóµÄÁÐºÍÐÐ
+	//vector< vector<int> >  matrixp;							// ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
+	int fnum = 4;							//  ï¿½ï¿½fnum ï¿½ï¿½ï¿½Å¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½
 	matrixProduct(matrix);
 
 	int j, i;
 	for (i = 0; i < fnum; i++)
 		for (j = 0; j < fnum; j++)
 		{
-			if (matrixp[i][j] == 1)						   // ÕÒ³ö³Ë»ý¾ØÕóÖÐ£¬ÖµÎª1 µÄÎ»ÖÃ
+			if (matrixp[i][j] == 1)						   // ï¿½Ò³ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ÖµÎª1 ï¿½ï¿½Î»ï¿½ï¿½
 			{
-				if (matrix[i][j] == 1)						// ÅÐ¶Ïmatrix¾ØÕóÖÐ¶ÔÓ¦µÄÎ»ÖÃÊÇ·ñÎª1£¬²»Îª1 £¬Ôò²»´«µÝ
-					return true;
+				if (matrix[i][j] == 0)						// ï¿½Ð¶ï¿½matrixï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ó¦ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½Îª1ï¿½ï¿½ï¿½ï¿½Îª1 ï¿½ï¿½ï¿½ò²»´ï¿½ï¿½ï¿½
+					return false;
+					
 			}
 		}
-	return  false;                                           // µ½´ï´Î²½Öè£¬ËµÃ÷¾ØÕóÊÇ´«µÝµÄ
+	return  true;                                           // ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½è£¬Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½Ýµï¿½
 }
 
 
@@ -82,19 +83,19 @@ int main()
 {
 	int i, j;
 	vector< vector<int> >  matrix;
-	vector< vector<int> >  matrixp;
+	//vector< vector<int> >  matrixp;
 	matrix.resize(4);
 	for (i = 0; i < 4; i++)
 		matrix[i].resize(4,0);
-	   matrix[2][1] = 1;
-	   matrix[1][2] = 1;
-	   matrix[1][1] = 1;
-	   matrix[2][2] = 1;
-	   matrix[1][3] = 1;
-	   matrix[1][1] = 1;
-	   matrix[3][3] = 1;
-	   matrix[3][1] = 1;
-	   cout << "²âÊÔ¾ØÕó:"<<endl;
+	   matrix[2][1] = 0;
+	   matrix[1][2] = 0;
+	   matrix[1][1] = 0;
+	   matrix[2][2] = 0;
+	   matrix[1][3] = 0;
+	   matrix[1][1] = 0;
+	   matrix[3][3] = 0;
+	   matrix[3][1] = 0;
+	   cout << "ï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½:"<<endl;
 	   for (i = 0; i < 4; i++)
 		   for (j = 0; j < 4; j++)
 		   {
@@ -103,19 +104,32 @@ int main()
 				   cout << endl;
 
 		   }
-	   cout << "¶þÔª¹ØÏµÅÐ¶Ï:" << endl;
+	   cout << "ï¿½ï¿½Ôªï¿½ï¿½Ïµï¿½Ð¶ï¿½:" << endl;
 	   if (isSymmetric(matrix) == 1)
-		   cout << "is Symmetric    "<<endl;
+	   {
+		   cout << "is Symmetric    " << endl;
+	   }
 	   else
-		   cout << "is not Symmetric     "<<endl;
+	     cout << "is not Symmetric     "<<endl;
 	   if (isAntisymmetric(matrix) == 1)
 		   cout << "is  Antisymmetric      "<<endl;
 	   else
 		   cout << "is not Antisymmetric "<<endl;
 
 			   matrixProduct(matrix);
-	   if (isTransitive(matrix) == 1)
-		   cout << "is  Transitive     "<<endl;
+			   if (isTransitive(matrix) == 1)
+			   {
+				   for (i = 0; i < 4; i++)
+					   for (j = 0; j < 4; j++)
+					   {
+						   cout << matrixp[i][j];
+						   if (j == 3)
+							   cout << endl;
+
+					   }
+				
+				   cout << "is  Transitive     " << endl;
+			   }
 	   else
 		   cout << "is   not Transitive       "<<endl;
 	   return 0;
