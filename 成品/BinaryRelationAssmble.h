@@ -149,7 +149,7 @@ public:
 	void print_father();
 	/*(石俊)输出关系集合*/
 	void print_relation();
-	/*(石俊)输出关系矩阵(可选)*/
+	/*(石俊)输出关系矩阵*/
 	void print_matrix();
 };
 
@@ -237,7 +237,7 @@ bool BinaryRelationAssmble<T>::inputMatrix()  //输入成功返回true，输入失败返回fa
 	return true;
 }
 
-//关系集合转换为关系矩阵的判断
+/*关系集合转换为关系矩阵的判断*/
 template <typename T>
 void BinaryRelationAssmble<T>::relationTOmatrix()
 {
@@ -265,7 +265,7 @@ void BinaryRelationAssmble<T>::relationTOmatrix()
 
 }
 
-//关系矩阵转换为关系集合的判断
+/*关系矩阵转换为关系集合的判断*/
 template <typename T>
 void BinaryRelationAssmble<T>::matrixTOrelation()
 {
@@ -287,6 +287,7 @@ void BinaryRelationAssmble<T>::matrixTOrelation()
 	}
 }
 
+/*输出父集元素*/
 template<typename T>
 void BinaryRelationAssmble<T>::print_father()
 {
@@ -297,6 +298,7 @@ void BinaryRelationAssmble<T>::print_father()
 	cout << father[i] << "}";
 }
 
+/*输出关系集合*/
 template<typename T>
 void BinaryRelationAssmble<T>::print_matrix()
 {
@@ -309,6 +311,7 @@ void BinaryRelationAssmble<T>::print_matrix()
 	}
 }
 
+/*输出关系矩阵*/
 template<typename T>
 void BinaryRelationAssmble<T>::print_relation()
 {
@@ -320,7 +323,7 @@ void BinaryRelationAssmble<T>::print_relation()
 	cout << "}" << endl;
 }
 
-/*(李玉霞)处理矩阵A变化时关系矩阵matrix的变化，即根据变化增加或删减行列*/
+/*处理矩阵A变化时关系矩阵matrix的变化，即根据变化增加或删减行列*/
 template<typename T>
 void  BinaryRelationAssmble<T>::whenFatherChange()
 {
@@ -331,7 +334,7 @@ void  BinaryRelationAssmble<T>::whenFatherChange()
 		matrix[i].resize(fnum);
 }
 
-/*(李玉霞)判断对象是否满足自反性,满足返回true,不满足返回false*/
+/*判断对象是否满足自反性,满足返回true,不满足返回false*/
 template<typename T>
 bool  BinaryRelationAssmble<T>::isReflexive()
 {
@@ -343,7 +346,7 @@ bool  BinaryRelationAssmble<T>::isReflexive()
 	return true;
 }
 
-/*(李玉霞)判断对象是否满足反自反性,满足返回true,不满足返回false*/
+/*判断对象是否满足反自反性,满足返回true,不满足返回false*/
 template<typename T>
 bool  BinaryRelationAssmble<T>::isIrreflexive()
 {
@@ -355,7 +358,7 @@ bool  BinaryRelationAssmble<T>::isIrreflexive()
 	return true;
 }
 
-/*(侯梦如)判断对象是否满足对称性,满足返回true,不满足返回false*/
+/*判断对象是否满足对称性,满足返回true,不满足返回false*/
 template<typename T>
 bool  BinaryRelationAssmble<T>::isSymmetric()
 {
@@ -369,7 +372,7 @@ bool  BinaryRelationAssmble<T>::isSymmetric()
 	return true;
 }
 
-/*(侯梦如)判断对象是否满足反对称性,满足返回true,不满足返回false*/
+/*判断对象是否满足反对称性,满足返回true,不满足返回false*/
 template<typename T>
 bool  BinaryRelationAssmble<T>::isAntisymmetric()
 {
@@ -412,7 +415,7 @@ void  BinaryRelationAssmble<T>::matrixProduct(vector< vector<int> > &  matrixp)
 
 }
 
-/*(侯梦如)判断对象是否满足传递性,满足返回true,不满足返回false*/
+/*判断对象是否满足传递性,满足返回true,不满足返回false*/
 template<typename T>
 bool  BinaryRelationAssmble<T>::isTransitive()
 {
